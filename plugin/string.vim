@@ -100,3 +100,30 @@ function! g:RandomString()
     endwhile 
     return l:szOut
 endfunction
+function! g:DeSpace()
+     execute "%s/^     / /ge"
+     execute "%s/^     / /ge"
+     execute "%s/^     / /ge"
+     execute "%s/^     / /ge"
+     execute "%s/^     / /ge"
+
+     execute "%s/^    / /ge"
+     execute "%s/^    / /ge"
+     execute "%s/^    / /ge"
+     execute "%s/^    / /ge"
+     execute "%s/^    / /ge"
+
+     execute "%s/^   / /ge"
+     execute "%s/^   / /ge"
+     execute "%s/^   / /ge"
+     execute "%s/^   / /ge"
+     execute "%s/^   / /ge"
+
+     execute "%s/^  / /ge"
+     execute "%s/^  / /ge"
+     execute "%s/^  / /ge"
+     execute "%s/^  / /ge"
+     execute "%s/^  / /ge"
+
+     execute "%s/^ //ge"
+endfunction
