@@ -48,3 +48,44 @@ func! s:strfind(s,find,start)
             endif
 
     endfunc
+
+function! TrimLeft(s1)
+     let l:szPart = substitute(a:s1, "^ *", "", "")
+     return l:szPart
+endfunction
+function! TrimRight(s1)
+     let l:szPart = substitute(l:szPart, " *$", "", "")
+     return l:szPart
+endfunction
+function! Trim(s1)
+     let l:szPart = substitute(a:s1, "^ *", "", "")
+     let l:szPart = substitute(l:szPart, " *$", "", "")
+     return l:szPart
+endfunction
+function! Trimmer(s1,s2)
+     let l:szPart = substitute(a:s1,     a:s2,  "", "")
+     let l:szPart = substitute(l:szPart, "^ *", "", "")
+     let l:szPart = substitute(l:szPart, " *$", "", "")
+     return l:szPart
+endfunction
+function! g:Pad(s,amt)
+        return a:s . repeat(' ',a:amt - len(a:s))
+endfunction
+function! g:PrePad(s,amt,...)
+        if a:0 > 0
+             let char = a:1
+        else
+             let char = ' '
+        endif
+        return repeat(char,a:amt - len(a:s)) . a:s
+endfunction
+
+function! g:CenterPad(...)
+        let l:n = (((g:LW-strlen(a:1)) / 2) + strlen(a:1)) - 0
+        return g:PrePad(a:1, l:n)
+endfunction
+function! g:DQ(...)
+    let l:sz = substitute(a:1, "<cr>", "", "g")
+    let l:sz = substitute(l:sz, ":", "", "g")
+    return "\'" . l:sz . "\'"
+endfunction
