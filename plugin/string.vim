@@ -89,3 +89,14 @@ function! g:DQ(...)
     let l:sz = substitute(l:sz, ":", "", "g")
     return "\'" . l:sz . "\'"
 endfunction
+function! g:RandomString()
+    let l:szAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    let l:c = 1
+    let l:szOut = ""
+    while l:c <= 8
+         let l:rrr = str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) % 24 
+         let l:szOut = l:szOut . l:szAlpha[rrr] 
+         let l:c += 1
+    endwhile 
+    return l:szOut
+endfunction
